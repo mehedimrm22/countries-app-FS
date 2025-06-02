@@ -7,6 +7,7 @@ import { TestData } from "./components/TestData";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedTestData from "./components/ProtectedTestData";
 import { AuthRedirect } from "./components/Auth/AuthRedirect";
+import Weather from "./components/Weather/Weather";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
                   </>
                 }
               />
+              <Route path="/weather" element={<Weather />} />
               <Route path="/test" element={<TestData />} />
               <Route
                 path="/protected"
