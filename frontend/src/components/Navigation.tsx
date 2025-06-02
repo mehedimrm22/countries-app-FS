@@ -12,6 +12,9 @@ export const Navigation = () => {
         <Button color="inherit" component={RouterLink} to="/">
           Home
         </Button>
+        <Button color="inherit" component={RouterLink} to="/countries">
+          Countries
+        </Button>
         <Button color="inherit" component={RouterLink} to="/weather">
           Weather
         </Button>

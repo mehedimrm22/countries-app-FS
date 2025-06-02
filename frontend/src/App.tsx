@@ -8,6 +8,8 @@ import { AuthProvider } from "./context/AuthContext";
 import ProtectedTestData from "./components/ProtectedTestData";
 import { AuthRedirect } from "./components/Auth/AuthRedirect";
 import Weather from "./components/Weather/Weather";
+import CountriesList from "./components/Countries/CountriesList";
+import CountryDetail from "./components/Countries/CountryDetail";
 
 function App() {
   return (
@@ -27,6 +29,9 @@ function App() {
                 }
               />
               <Route path="/weather" element={<Weather />} />
+              <Route path="/countries" element={<CountriesList />} />
+              <Route path="/countries/:name" element={<CountryDetail />} />
+
               <Route path="/test" element={<TestData />} />
               <Route
                 path="/protected"
@@ -36,7 +41,7 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route path="/" element={<div>Home</div>} />
+              <Route path="/" element={<CountriesList />} />
               {/* Other routes... */}
             </Routes>
           </Box>
