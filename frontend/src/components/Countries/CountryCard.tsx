@@ -3,8 +3,8 @@ import {
   CardContent,
   CardMedia,
   Typography,
-  CardActionArea,
   Box,
+  Button,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { Country } from "../../types/country";
@@ -17,19 +17,14 @@ interface CountryCardProps {
 const CountryCard: React.FC<CountryCardProps> = ({ country }) => {
   return (
     <Card sx={{ maxWidth: 345, height: "100%", position: "relative" }}>
-      <CardActionArea
-        component={Link}
-        to={`/countries/${encodeURIComponent(country.name.common)}`}
-      >
-        <CardMedia
-          component="img"
-          height="140"
-          image={country.flags.png}
-          alt={country.flags.alt || country.name.common}
-        />
-      </CardActionArea>
+      <CardMedia
+        component="img"
+        height="140"
+        image={country.flags.png}
+        alt={country.flags.alt || country.name.common}
+      />
 
-      {/* Card content with favorite icon */}
+      {/* Card content with favorite icon and details */}
       <CardContent sx={{ position: "relative", paddingRight: 5 }}>
         <Box
           sx={{
@@ -53,6 +48,19 @@ const CountryCard: React.FC<CountryCardProps> = ({ country }) => {
         <Typography variant="body2" color="text.secondary">
           Population: {country.population.toLocaleString()}
         </Typography>
+
+        {/* Show Details button */}
+        <Box mt={2}>
+          <Button
+            component={Link}
+            to={`/countries/${encodeURIComponent(country.name.common)}`}
+            variant="outlined"
+            size="small"
+            fullWidth
+          >
+            Show Details
+          </Button>
+        </Box>
       </CardContent>
     </Card>
   );
